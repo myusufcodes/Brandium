@@ -1,14 +1,36 @@
 'use client'
+import { useGSAP } from "@gsap/react"
 import { navLinks } from "../constants"
 import { playSound } from "./Sound"
+import gsap from "gsap"
 const Navbar = () => {
+    useGSAP(() => {
+        const tl = gsap.timeline();
 
+        tl.from('nav img', {
+            y: 20,
+            opacity: 0,
+            duration: 0.5
+        })
+        tl.from('ul li', {
+            y: 20,
+            opacity: 0,
+            duration: 0.3,
+            stagger: 0.1
+        })
+        tl.from('.cta-section', {
+            y: 20,
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.2
+        })
+    }, [])
     return (
-        <header className="w-full">
-            <nav className="w-full flex justify-between items-center px-12 py-6">
-                <img onMouseEnter={playSound} src="/logo.svg" alt="Logo" width={175} />
+        <header className="w-full fixed top-0">
+            <nav className="w-full flex justify-between items-center px-12 py-6 overflow-hidden">
+                <img onMouseEnter={playSound} src="/logo.svg" alt="Logo" width={175} className="cursor-pointer" />
 
-                <ul className="links flex justify-center items-center gap-14 font-[fontmd] font-semibold">
+                <ul className="links flex justify-center items-center gap-14 font-[fontlighter] font-semibold">
                     {navLinks.map((link, index) => (
                         <li onMouseEnter={playSound} key={index} className="group flex justify-center items-center gap-1">
                             <img src="star.svg" alt="Star" width={13} className="opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-150" />
