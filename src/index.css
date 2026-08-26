@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: fontlighter;
+    src: url(/public/fonts/TWKLausanne-250.woff2);
+}
+
+@font-face {
+    font-family: fontlight;
+    src: url(/public/fonts/TWKLausanne-300.woff2);
+}
+
+@font-face {
+    font-family: fontmd;
+    src: url(/public/fonts/TWKLausanne-400.woff2);
+}
+
+.dot::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background-color: greenyellow;
+    position: absolute;
+    right: 0;
+    transform: translateX(-15px);
+    opacity: 0;
+}
+
+.CTA-Btn:hover .dot::before {
+    transform: translateX(0px);
+    opacity: 100;
+}
+
+.dot:nth-child(1)::before { transition: all 0.2s linear 0.0s; }
+.dot:nth-child(2)::before { transition: all 0.2s linear 0.1s; }
+.dot:nth-child(3)::before { transition: all 0.2s linear 0.2s; }
+.dot:nth-child(4)::before { transition: all 0.2s linear 0.3s; }
+.dot:nth-child(5)::before { transition: all 0.2s linear 0.4s; }
+
+.CTA-Btn:hover .dot:nth-child(1)::before { transition: all 0.2s linear 0.0s; }
+.CTA-Btn:hover .dot:nth-child(2)::before { transition: all 0.2s linear 0.1s; }
+.CTA-Btn:hover .dot:nth-child(3)::before { transition: all 0.2s linear 0.2s; }
+.CTA-Btn:hover .dot:nth-child(4)::before { transition: all 0.2s linear 0.3s; }
+.CTA-Btn:hover .dot:nth-child(5)::before { transition: all 0.2s linear 0.4s; }
