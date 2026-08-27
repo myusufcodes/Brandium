@@ -20,7 +20,7 @@ const Navbar = () => {
         tl.from('.cta-section', {
             y: 20,
             opacity: 0
-        })
+        }, '-=1.2')
     }, [])
     return (
         <header className="w-full fixed top-0 z-15">
