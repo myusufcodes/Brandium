@@ -15,18 +15,15 @@ const Navbar = () => {
         tl.from('ul li', {
             y: 20,
             opacity: 0,
-            duration: 0.3,
             stagger: 0.1
         })
         tl.from('.cta-section', {
             y: 20,
-            opacity: 0,
-            duration: 0.5,
-            stagger: 0.2
+            opacity: 0
         })
     }, [])
     return (
-        <header className="w-full fixed top-0">
+        <header className="w-full fixed top-0 z-15">
             <nav className="w-full flex justify-between items-center px-12 py-6 overflow-hidden">
                 <img onMouseEnter={playSound} src="/logo.svg" alt="Logo" width={175} className="navLogo cursor-pointer" />
 
