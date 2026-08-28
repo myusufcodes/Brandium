@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar"
 import Hero from "./sections/Hero"
 import Projects from "./sections/Projects"
 import Circle from "./components/Circle"
+import Philosophy from "./sections/Philosophy"
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Navbar />
       <Hero />
       <Projects />
+      <Philosophy />
     </main>
   )
 }
