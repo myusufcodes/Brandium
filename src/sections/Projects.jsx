@@ -1,13 +1,15 @@
-import { useRef } from "react"
+import { useRef, useContext} from "react"
 import Btn from "../components/Btn"
 import { playSound } from "../components/Sound"
 import { projects } from "../constants"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/all"
+import { circleContext } from "../context/Circlecontext"
 
 gsap.registerPlugin(ScrollTrigger)
 const Projects = () => {
+    const [isHovered, setIsHovered] = useContext(circleContext)
     const projectRef = useRef(null)
     useGSAP(() => {
         gsap.fromTo('.first-projects',
@@ -38,8 +40,15 @@ const Projects = () => {
                 {projects.map(({ project1, project2 }, index) => {
                     return (
                         <div key={index} className={`project-pair ${index === 1 ? 'animated-projects' : 'first-projects'} flex justify-center items-center gap-8 origin-bottom`}>
-                            <div onMouseEnter={() => playSound()} className="project-1 w-1/2 relative">
-                                <div className="overlay w-full h-full absolute z-10" />
+                            <div
+                                onMouseEnter={() => {
+                                    playSound()
+                                    setIsHovered(true)
+                                }}
+                                onMouseLeave={() => {
+                                    setIsHovered(false)
+                                }}
+                                className="project-1 w-1/2">
                                 <div className="image-container h-[650px] overflow-hidden">
                                     <img src={`/projects/${project1.img}`} alt="Project" className="w-full h-full object-cover" />
                                 </div>
@@ -53,8 +62,15 @@ const Projects = () => {
                                 </div>
                             </div>
 
-                            <div onMouseEnter={() => playSound()} className="project-2 w-1/2 relative">
-                                <div className="overlay w-full h-full absolute z-10" />
+                            <div
+                                onMouseEnter={() => {
+                                    playSound()
+                                    setIsHovered(true)
+                                }}
+                                onMouseLeave={() => {
+                                    setIsHovered(false)
+                                }}
+                                className="project-2 w-1/2">
                                 <div className="image-container h-[650px] overflow-hidden">
                                     <img src={`/projects/${project2.img}`} alt="Project" className="w-full h-full object-cover" />
                                 </div>
