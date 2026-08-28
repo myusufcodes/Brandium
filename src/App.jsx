@@ -3,6 +3,7 @@ import Hero from "./sections/Hero"
 import Projects from "./sections/Projects"
 import Circle from "./components/Circle"
 import Philosophy from "./sections/Philosophy"
+import Images from "./sections/Images"
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Hero />
       <Projects />
       <Philosophy />
+      <Images />
     </main>
   )
 }
