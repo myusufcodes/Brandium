@@ -4,6 +4,7 @@ import Projects from "./sections/Projects"
 import Circle from "./components/Circle"
 import Philosophy from "./sections/Philosophy"
 import Images from "./sections/Images"
+import String from "./components/String"
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Projects />
       <Philosophy />
       <Images />
+      <String top='top 50%' />
     </main>
   )
 }
