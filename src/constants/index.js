@@ -26,3 +26,68 @@ export const projects = [
         },
     }
 ]
+
+export const services = [
+    {
+        title: 'Branding & Identity',
+        services: [
+            "Brand strategy",
+            "Brand positioning",
+            "Visual identity design",
+            "Logo design",
+            "Naming & verbal identity",
+            "Brand guidelines",
+            "Brand architecture",
+            "Print & editorial design",
+            "Packaging design",
+            "Icon & illustration design",
+            "Graphic design"
+        ],
+        imgTitle: 'brand'
+    },
+    {
+        title: 'Webdesign & Development',
+        services: [
+            "Website design",
+            "UI/UX design",
+            "Webflow development",
+            "WordPress development",
+            "Custom front-end development",
+            "Back-end development",
+            "Prototyping & wireframing",
+            "Landing page design",
+            "Interactive web experiences",
+            "E-commerce",
+            "Shopify"
+        ],
+        imgTitle: 'web'
+    },
+    {
+        title: 'Motion & 3D',
+        services: [
+            "Motion graphics",
+            "3D design",
+            "Web animations",
+            "Scroll-based interactions",
+            "Illustration & visual storytelling",
+            "Interactive prototyping",
+            "Video & animation direction",
+        ],
+        imgTitle: 'motion'
+    },
+    {
+        title: 'Campaigns & Content',
+        services: [
+            "Copywriting & messaging",
+            "Brand storytelling",
+            "Launch campaigns",
+            "Website & landing page copy",
+            "Email & newsletter copy",
+            "Tone of voice development",
+            "Social media management",
+            "Google Ads & social advertising",
+        ],
+        imgTitle: 'content'
+    },
+
+]
