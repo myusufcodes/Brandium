@@ -9,6 +9,11 @@ const Hero = () => {
             duration: 0.5,
             stagger: 0.2,
         })
+        gsap.from('.top span', {
+            color: '#adff2f',
+            duration: 1.5,
+            stagger: 0.2,
+        })
         gsap.from('.right span', {
             y: 25,
             opacity: 0,

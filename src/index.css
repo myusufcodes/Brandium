@@ -23,7 +23,7 @@ body {
     content: '';
     width: 4px;
     height: 4px;
-    background-color: greenyellow;
+    background-color: #adff2f;
     position: absolute;
     right: 0;
     transform: translateX(-15px);

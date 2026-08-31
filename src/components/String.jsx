@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/all"
 
 gsap.registerPlugin(ScrollTrigger);
 
-const String = ({ top }) => {
+const String = () => {
   const pathRef = useRef(null)
   const containerRef = useRef(null)
   const isAnimatingRef = useRef(true)
@@ -25,14 +25,14 @@ const String = ({ top }) => {
         ease: 'power2.out',
         scrollTrigger: {
           trigger: containerRef.current,
-          start: top,
+          start: 'top 50%',
         },
         onComplete: () => {
           isAnimatingRef.current = false
         }
       }
     )
-  }, [top])
+  }, [])
 
   const handleMouseMove = contextSafe((e) => {
     if (isAnimatingRef.current) return

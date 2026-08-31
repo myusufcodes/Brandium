@@ -16,8 +16,10 @@ const App = () => {
       <Projects />
       <Philosophy />
       <Images />
-      <String top='top 50%' />
+      <String />
       <Services />
+      <String />
+      <div className="h-full"></div>
     </main>
   )
 }

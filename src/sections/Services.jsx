@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Btn from '../components/Btn'
 import { services } from '../constants'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 
+gsap.registerPlugin(ScrollTrigger)
 const Services = () => {
     const [title, setTitle] = useState('')
     const brandRef = useRef(null);
@@ -50,7 +54,7 @@ const Services = () => {
         } else if (title === 'content') {
             contentRef.current.style.opacity = '100%'
             contentRef.current.style.top = '0px'
-            
+
             motionRef.current.style.opacity = '0%'
             motionRef.current.style.top = '100px'
 
@@ -62,18 +66,44 @@ const Services = () => {
         }
     })
 
+    useGSAP(() => {
+        gsap.from('.services-heading span', {
+            rotateX: -75,
+            color: '#adff2f',
+            opacity: 0,
+            duration: 0.7,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '#services',
+                start: 'top 70%'
+            }
+        })
+        gsap.from('.small-heading span', {
+            y: 20,
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: '#services',
+                start: 'top 70%'
+            }
+        })
+    }, [])
+
     return (
         <section id="services" className='mt-12'>
             <div className="container w-full flex px-12 relative">
                 <div className="left w-1/2">
-                    <h5 className='flex gap-1 font-[fontlight] text-lg'>
-                        <img src="/star.svg" alt="Star" width={13} />
-                        How we help
-                    </h5>
-                    <p className='font-[fontlight] text-6xl tracking-tighter flex flex-col mt-1.5'>
-                        <span>Everything your brand</span>
-                        <span>needs to launch, grow</span>
-                        <span>and thrive</span>
+                    <h4 className="small-heading font-[fontlight] text-lg flex gap-1 ">
+                        <img src="/star.svg" alt="star" width={13} />
+                        <span>How</span>
+                        <span>We</span>
+                        <span>Help</span>
+                    </h4>
+                    <p className='services-heading font-[fontlight] text-6xl tracking-tighter flex flex-col mt-1.5 perspective-distant'>
+                        <span className="inline-block">Everything your brand</span>
+                        <span className="inline-block">needs to launch, grow</span>
+                        <span className="inline-block">and thrive</span>
                     </p>
                 </div>
                 <div className="btn-container flex justify-end items-end w-1/2">

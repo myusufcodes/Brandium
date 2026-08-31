@@ -12,7 +12,7 @@ const Navbar = () => {
             opacity: 0,
             duration: 0.5
         })
-        tl.from('ul li', {
+        tl.from('.links li', {
             y: 20,
             opacity: 0,
             stagger: 0.1
