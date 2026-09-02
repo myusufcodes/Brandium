@@ -6,6 +6,7 @@ import Philosophy from "./sections/Philosophy"
 import Images from "./sections/Images"
 import String from "./components/String"
 import Services from "./sections/Services"
+import Results from "./sections/Results"
 
 const App = () => {
   return (
@@ -19,7 +20,7 @@ const App = () => {
       <String />
       <Services />
       <String />
-      <div className="h-full"></div>
+      <Results />
     </main>
   )
 }

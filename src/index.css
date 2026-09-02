@@ -46,3 +46,17 @@ body {
 .CTA-Btn:hover .dot:nth-child(3)::before { transition: all 0.2s linear 0.2s; }
 .CTA-Btn:hover .dot:nth-child(4)::before { transition: all 0.2s linear 0.3s; }
 .CTA-Btn:hover .dot:nth-child(5)::before { transition: all 0.2s linear 0.4s; }
+
+.marquee {
+    animation: marquee 60s linear 0s infinite;
+  }
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-500%);
+  }
+}
