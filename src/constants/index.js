@@ -99,3 +99,33 @@ export const marquee1 = [
 export const marquee2 = [
     'logo1', 'logo2', 'logo3', 'logo4', 'logo5', 'logo6', 'logo7', 'logo8', 'logo9', 'logo10'
 ]
+
+export const articles = [
+    {
+        title: 'The ROI of investing in a professional branding agency',
+        readTime: '6 min read',
+        date: '03/03/2026',
+        media: {
+            type: 'img',
+            src: '/articles/img1.webp'
+        }
+    },
+    {
+        title: 'Using AI in brand strategy and what it means for ambitious brands',
+        readTime: '7 min read',
+        date: '13/02/2026',
+        media: {
+            type: 'video',
+            src: '/articles/video.webm'
+        }
+    },
+    {
+        title: 'Luxury branding agency for high-end and premium brands',
+        readTime: '6 min read',
+        date: '18/12/2025',
+        media: {
+            type: 'img',
+            src: '/articles/img2.webp'
+        }
+    }
+]

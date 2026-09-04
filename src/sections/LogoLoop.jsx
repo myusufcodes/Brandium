@@ -30,14 +30,14 @@ const LogoLoop = () => {
         window.addEventListener('wheel', (dets) => {
             if (dets.deltaY > 0) {
                 gsap.to('.logo-marquee-1', {
-                    transform: 'translateX(400%)',
-                    duration: 60,
+                    transform: 'translateX(100%)',
+                    duration: 30,
                     repeat: -1
                 })
             } else {
                 gsap.to('.logo-marquee-1', {
-                    transform: 'translateX(-400%)',
-                    duration: 60,
+                    transform: 'translateX(-100%)',
+                    duration: 30,
                     repeat: -1
                 })
             }
@@ -46,14 +46,14 @@ const LogoLoop = () => {
         window.addEventListener('wheel', (dets) => {
             if (dets.deltaY > 0) {
                 gsap.to('.logo-marquee-2', {
-                    transform: 'translateX(-400%)',
-                    duration: 60,
+                    transform: 'translateX(-100%)',
+                    duration: 30,
                     repeat: -1
                 })
             } else {
                 gsap.to('.logo-marquee-2', {
-                    transform: 'translateX(400%)',
-                    duration: 60,
+                    transform: 'translateX(100%)',
+                    duration: 30,
                     repeat: -1
                 })
             }
