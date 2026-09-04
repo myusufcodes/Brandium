@@ -2,9 +2,11 @@ import gsap from "gsap"
 import Btn from "../components/Btn"
 import { articles } from "../constants"
 import { useGSAP } from "@gsap/react"
-
+import { playSound } from "../components/Sound"
+import { useContext } from "react"
+import { journalContext } from "../context/JournalContext"
 const Journal = () => {
-
+    const [isJournalHovered, setIsJournalHovered] = useContext(journalContext);
     useGSAP(() => {
         gsap.from('.journal-left-heading', {
             rotateX: -75,
@@ -50,7 +52,13 @@ const Journal = () => {
 
             <div className="articles-container w-full flex justify-center items-center gap-8 mt-16">
                 {articles.map((article, index) => (
-                    <div key={index} className="card w-1/3 h-[585px]">
+                    <div
+                        onMouseEnter={() => {
+                            playSound()
+                            setIsJournalHovered(true)
+                        }}
+                        onMouseLeave={() => {setIsJournalHovered(false)}}
+                        key={index} className="card w-1/3 h-[585px]">
                         <div className="group media relative h-[450px] overflow-hidden rounded-xl">
                             {article.media.type === 'img'
                                 ?

@@ -129,3 +129,5 @@ export const articles = [
         }
     }
 ]
+
+export const socials = ['Instagram', 'LinkedIn', 'Facebook']
