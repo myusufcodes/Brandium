@@ -1,18 +1,57 @@
-import React from 'react'
+import { useGSAP } from '@gsap/react'
 import Marquee from '../components/Marquee'
+import gsap from 'gsap'
 
 const Results = () => {
+
+    useGSAP(() => {
+        gsap.from('.results-heading span', {
+            rotateX: -75,
+            color: '#adff2f',
+            opacity: 0,
+            duration: 0.7,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '#results',
+                start: 'top 80%'
+            }
+        })
+        gsap.from('.little-heading span', {
+            y: 20,
+            opacity: 0,
+            duration: 0.7,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '#results',
+                start: 'top 80%'
+            }
+        })
+        gsap.from('.right-half span', {
+            y: 20,
+            opacity: 0,
+            duration: 0.7,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '#results',
+                start: 'top 80%'
+            }
+        })
+    }, [])
     return (
         <section id="results">
             <div className='px-12'>
                 <h4 className="font-[fontlight] text-lg flex gap-1 ">
                     <img src="/star.svg" alt="star" width={13} />
-                    Impact Made Visible
+                    <p className='little-heading'>
+                        <span>Impact </span>
+                        <span>Made </span>
+                        <span>Visible</span>
+                    </p>
                 </h4>
             </div>
 
             <div className="heading-section w-full flex justify-between px-12 mt-2">
-                <div className="heading w-1/2 flex flex-col font-[fontlight] text-[4vw] leading-[4.2vw] tracking-tighter perspective-distant">
+                <div className="results-heading w-1/2 flex flex-col font-[fontlight] text-[4vw] leading-[4.2vw] tracking-tighter perspective-distant">
                     <span>From bold ideas to</span>
                     <span>results that truly matter</span>
                 </div>

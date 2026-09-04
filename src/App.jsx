@@ -7,6 +7,7 @@ import Images from "./sections/Images"
 import String from "./components/String"
 import Services from "./sections/Services"
 import Results from "./sections/Results"
+import LogoLoop from "./sections/LogoLoop"
 
 const App = () => {
   return (
@@ -21,6 +22,8 @@ const App = () => {
       <Services />
       <String />
       <Results />
+      <String />
+      <LogoLoop />
     </main>
   )
 }

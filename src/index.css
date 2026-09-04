@@ -48,7 +48,7 @@ body {
 .CTA-Btn:hover .dot:nth-child(5)::before { transition: all 0.2s linear 0.4s; }
 
 .marquee {
-    animation: marquee 60s linear 0s infinite;
+    animation: marquee 75s linear 0s infinite;
   }
 
 
