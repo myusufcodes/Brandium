@@ -35,7 +35,6 @@ const Projects = ({ isLoading }) => {
                 scrollTrigger: {
                     trigger: '.animated-projects',
                     start: 'top 75%',
-                    toggleActions: 'play none none reverse'
                 }
             }
         )
