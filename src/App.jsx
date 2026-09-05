@@ -24,7 +24,7 @@ const App = () => {
         <Hero isLoading={isLoading} />
         <Projects isLoading={isLoading} />
         <Philosophy />
-        <Images />
+        <Images isLoading={isLoading} />
         <String />
         <Services />
         <String />
