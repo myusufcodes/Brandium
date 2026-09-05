@@ -35,7 +35,7 @@ const Images = () => {
     return (
         <section id="images" className='mt-12 flex justify-center items-center h-full'>
             <div className="images-container w-[95%] h-[95%] rounded-xl overflow-hidden">
-                <img src={`/images/img${imageIndex}.webp`} alt="images" className='w-full h-full object-cover' />
+                <img key={imageIndex} src={`/images/img${imageIndex}.webp`} alt="images" className='w-full h-full object-cover' />
             </div>
         </section>
     )
