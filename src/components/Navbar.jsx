@@ -1,33 +1,44 @@
 'use client'
+import { useRef } from "react"
 import { useGSAP } from "@gsap/react"
 import { navLinks } from "../constants"
 import { playSound } from "./Sound"
 import gsap from "gsap"
-const Navbar = () => {
-    useGSAP(() => {
-        const tl = gsap.timeline();
 
-        tl.from('nav .navLogo', {
-            y: 20,
-            opacity: 0,
-            duration: 0.5
-        })
-        tl.from('.links li', {
-            y: 20,
-            opacity: 0,
-            stagger: 0.1
-        })
-        tl.from('.cta-section', {
-            y: 20,
-            opacity: 0
-        }, '-=1.2')
+const Navbar = ({ isLoading }) => {
+    const tl = useRef(null)
+
+    useGSAP(() => {
+        tl.current = gsap.timeline({ paused: true })
+        tl.current
+            .from('nav .navLogo', {
+                y: 20,
+                opacity: 0,
+                duration: 0.5
+            })
+            .from('.navbar-links li', {
+                y: 20,
+                opacity: 0,
+                stagger: 0.1
+            })
+            .from('.cta-section', {
+                y: 20,
+                opacity: 0
+            })
     }, [])
+    
+    useGSAP(() => {
+        if (!isLoading && tl.current) {
+            tl.current.play()
+        }
+    }, [isLoading])
+
     return (
-        <header className="w-full fixed top-0 z-15">
-            <nav className="w-full flex justify-between items-center px-12 py-6 overflow-hidden">
+        <header className="w-full fixed top-0 z-50">
+            <nav className="w-full flex justify-between items-center px-12 py-6 overflow-hidden bg-transparent">
                 <img onMouseEnter={playSound} src="/logo.svg" alt="Logo" width={175} className="navLogo cursor-pointer" />
 
-                <ul className="links flex justify-center items-center gap-14 font-[fontlighter] font-semibold">
+                <ul className="navbar-links flex justify-center items-center gap-14 font-[fontlighter] font-semibold">
                     {navLinks.map((link, index) => (
                         <li onMouseEnter={playSound} key={index} className="group flex justify-center items-center gap-1">
                             <img src="/star.svg" alt="Star" width={13} className="opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-150" />
@@ -37,13 +48,13 @@ const Navbar = () => {
                 </ul>
 
                 <div className="cta-section flex justify-center items-center gap-14">
-                    <span onMouseEnter={playSound} className="group uppercase cursor-pointer relative flex flex-col justify-center items-center overflow-hidden relative">
+                    <span onMouseEnter={playSound} className="group uppercase cursor-pointer relative flex flex-col justify-center items-center overflow-hidden">
                         <span className="uppercase group-hover:-translate-y-5 transition-all duration-300">Nl</span>
                         <span className="absolute uppercase translate-y-5 group-hover:translate-y-0 transition-all duration-300">Nl</span>
                     </span>
 
                     <button onMouseEnter={playSound} className="CTA-Btn px-6 py-2 flex justify-center items-center gap-3 rounded-sm bg-[#1B1B1C] cursor-pointer hover:scale-[105%] transition-transform duration-150">
-                        <span className="font-[fontmd] text-lg text-white ">Let's Talk</span>
+                        <span className="font-[fontmd] text-lg text-white">Let's Talk</span>
 
                         <div className="dots">
                             <div className="dot transition-all duration-200 relative h-1 w-1 bg-[#afafaf]" />

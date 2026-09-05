@@ -1,4 +1,4 @@
-import { useRef, useContext} from "react"
+import { useRef, useContext } from "react"
 import Btn from "../components/Btn"
 import { playSound } from "../components/Sound"
 import { projects } from "../constants"
@@ -8,15 +8,20 @@ import { ScrollTrigger } from "gsap/all"
 import { circleContext } from "../context/Circlecontext"
 
 gsap.registerPlugin(ScrollTrigger)
-const Projects = () => {
+
+const Projects = ({ isLoading }) => {
     const [isHovered, setIsHovered] = useContext(circleContext)
     const projectRef = useRef(null)
+    const tlRef = useRef(null)
+
     useGSAP(() => {
-        gsap.fromTo('.first-projects',
-            { clipPath: 'inset(15% 0% 0% 0%)' },
+        tlRef.current = gsap.timeline({ paused: true })
+
+        tlRef.current.fromTo('.first-projects',
+            { clipPath: 'inset(25% 0% 0% 0%)' },
             {
                 clipPath: 'inset(0% 0% 0% 0%)',
-                duration: 1,
+                duration: 0.9,
                 ease: 'none'
             }
         )
@@ -28,15 +33,24 @@ const Projects = () => {
                 duration: 1,
                 ease: 'none',
                 scrollTrigger: {
-                    trigger: projectRef.current,
-                    start: 'top -20%'
+                    trigger: '.animated-projects',
+                    start: 'top 75%',
+                    toggleActions: 'play none none reverse'
                 }
             }
         )
-    })
+    }, { scope: projectRef })
+
+    useGSAP(() => {
+        if (!isLoading && tlRef.current) {
+            ScrollTrigger.refresh()
+            tlRef.current.play()
+        }
+    }, [isLoading])
+
     return (
-        <section id="projects" className="mt-24">
-            <div ref={projectRef} className="projects-container w-full px-12 flex flex-col gap-8 overflow-hidden">
+        <section id="projects" className="mt-24" ref={projectRef}>
+            <div className="projects-container w-full px-12 flex flex-col gap-8 overflow-hidden">
                 {projects.map(({ project1, project2 }, index) => {
                     return (
                         <div key={index} className={`project-pair ${index === 1 ? 'animated-projects' : 'first-projects'} flex justify-center items-center gap-8 origin-bottom`}>

@@ -1,28 +1,40 @@
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
+import { useRef } from "react"
 
-const Hero = () => {
+const Hero = ({ isLoading }) => {
+    const tlRef = useRef(null);
+    const heroRef = useRef(null);
     useGSAP(() => {
-        gsap.from('.top span', {
-            rotateX: -75,
-            opacity: 0,
-            duration: 0.5,
-            stagger: 0.2,
-        })
-        gsap.from('.top span', {
-            color: '#adff2f',
-            duration: 1.5,
-            stagger: 0.2,
-        })
-        gsap.from('.right span', {
-            y: 25,
-            opacity: 0,
-            duration: 0.5,
-            stagger: 0.2
-        })
-    }, [])
+        tlRef.current = gsap.timeline({ paused: true })
+
+        tlRef.current
+            .from('.top span', {
+                rotateX: -75,
+                opacity: 0,
+                duration: 0.5,
+                stagger: 0.2,
+            }, 'hero')
+            .from('.top span', {
+                color: '#adff2f',
+                duration: 1.5,
+                stagger: 0.2,
+            }, 'hero')
+            .from('.right span', {
+                y: 25,
+                opacity: 0,
+                duration: 0.5,
+                stagger: 0.2
+            }, 'hero')
+    }, { scope: heroRef })
+
+    useGSAP(() => {
+        if (!isLoading && tlRef.current) {
+            tlRef.current.play();
+        }
+    }, [isLoading])
     return (
-        <section id="hero" className="pt-40">
+        <section id="hero" className="pt-40" ref={heroRef}>
             <div className="container w-full px-12">
                 <div className="top font-[fontlighter] text-left text-[5vw] leading-[5.5vw] tracking-tighter perspective-distant">
                     <span className="inline-block">We're a creative branding</span> <br />

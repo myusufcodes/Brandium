@@ -10,25 +10,31 @@ import Results from "./sections/Results"
 import LogoLoop from "./sections/LogoLoop"
 import Journal from "./sections/Journal"
 import Footer from "./components/Footer"
+import Preloader from "./components/Preloader"
+import { useState } from "react"
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState(true)
   return (
-    <main className="w-full h-screen">
-      <Circle />
-      <Navbar />
-      <Hero />
-      <Projects />
-      <Philosophy />
-      <Images />
-      <String />
-      <Services />
-      <String />
-      <Results />
-      <String />
-      <LogoLoop />
-      <Journal />
-      <Footer />
-    </main>
+    <>
+      {isLoading && <Preloader onComplete={() => { setIsLoading(false) }} />}
+      <main className="w-full h-screen">
+        <Circle />
+        <Navbar isLoading={isLoading} />
+        <Hero isLoading={isLoading} />
+        <Projects isLoading={isLoading} />
+        <Philosophy />
+        <Images />
+        <String />
+        <Services />
+        <String />
+        <Results />
+        <String />
+        <LogoLoop />
+        <Journal />
+        <Footer />
+      </main>
+    </>
   )
 }
 
