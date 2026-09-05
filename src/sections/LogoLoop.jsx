@@ -31,13 +31,13 @@ const LogoLoop = () => {
             if (dets.deltaY > 0) {
                 gsap.to('.logo-marquee-1', {
                     transform: 'translateX(100%)',
-                    duration: 30,
+                    duration: 20,
                     repeat: -1
                 })
             } else {
                 gsap.to('.logo-marquee-1', {
                     transform: 'translateX(-100%)',
-                    duration: 30,
+                    duration: 20,
                     repeat: -1
                 })
             }
@@ -47,13 +47,13 @@ const LogoLoop = () => {
             if (dets.deltaY > 0) {
                 gsap.to('.logo-marquee-2', {
                     transform: 'translateX(-100%)',
-                    duration: 30,
+                    duration: 20,
                     repeat: -1
                 })
             } else {
                 gsap.to('.logo-marquee-2', {
                     transform: 'translateX(100%)',
-                    duration: 30,
+                    duration: 20,
                     repeat: -1
                 })
             }
@@ -80,9 +80,15 @@ const LogoLoop = () => {
                     <Marquee_1 />
                     <Marquee_1 />
                     <Marquee_1 />
+                    <Marquee_1 />
+                    <Marquee_1 />
+                    <Marquee_1 />
                 </div>
 
                 <div className="logo-marquee-2 flex gap-32 justify-center items-center">
+                    <Marquee_2 />
+                    <Marquee_2 />
+                    <Marquee_2 />
                     <Marquee_2 />
                     <Marquee_2 />
                     <Marquee_2 />
