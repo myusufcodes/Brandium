@@ -1,19 +1,24 @@
-# React + Vite
+# Brandium
+An interactive, agency-style web experience inspired by [Brandium.nl](https://brandium.nl/). Built with a focus on interaction design and modern component architecture.
+[Live Demo](https://brandium-iota.vercel.app/)
+> 💻 **Note:** Designed and optimized exclusively for laptop/desktop viewports (not mobile responsive).
+---
+### Key Features & Highlights
+- **Layout Choreography:** Multi-section scroll triggers and animations powered by GSAP.
+- **Interactive UI Components:** Custom hover states, and dynamic DOM interactions.
+- **Modular Architecture:** Clean component structure built with React and Tailwind CSS.
+---
+### 🛠️ Tech Stack
+- **Framework:** React
+- **Styling:** Tailwind CSS
+- **Animation:** GSAP (GreenSock Animation Platform), ScrollTrigger
+- **Deployment:** Vercel
+---
+### Personal Takeaways
+Building this project was a step forward towards mastering GSAP animations and creative frontend. I found some areas in which I can grow myself while building this project. Like 2D canvas effects and drag physics in the results section.
+---
+### 🤝 Credits & Acknowledgments
+- **Design & Original Concept:** All design rights and original concepts belong to [Brandium.nl](https://brandium.nl/).
+- **Implementation:** Re-engineered independently to practice advanced frontend interactive designs and component structuring.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+*All layout architecture, component logic, and styling were built independently.*
